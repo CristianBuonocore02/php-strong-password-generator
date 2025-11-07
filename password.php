@@ -1,12 +1,7 @@
 <?php
-
 session_start();
-$password = $_SESSION['password']
-
-
+$password = $_SESSION['password'] ?? '';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +12,9 @@ $password = $_SESSION['password']
 </head>
 
 <body>
-    <h1>La tua password è : <?php echo $password ?> </h1>
+    <h1>La tua password è: <?php echo htmlspecialchars($password); ?></h1>
     <hr>
-    <a href="./index.php">torna indietro</a>
+    <a href="index.php">Torna indietro</a>
 </body>
 
 </html>

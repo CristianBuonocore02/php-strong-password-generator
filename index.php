@@ -1,13 +1,13 @@
 <?php
+session_start();
 require_once 'function.php';
 
-if ($password != "") {
-    header("location: ./password.php");
-    session_start();
-
+// Se la password è stata generata, la salvo in sessione e faccio redirect
+if (!empty($password)) {
     $_SESSION['password'] = $password;
+    header("Location: password.php");
+    exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,14 @@ if ($password != "") {
     <hr>
     <br>
     <form action="" method="GET">
-        <input type="number" name="lenght" placeholder="inserisci un numero" min="5" max="40">
+        <!-- Corretto name da 'lenght' a 'length' -->
+        <input type="number" name="length" placeholder="inserisci un numero" min="5" max="40"><br><br>
+        <!-- Checkbox dentro il form -->
+        <input type="checkbox" name="lettere" id="lettere"><label for="lettere">Lettere</label>
+        <input type="checkbox" name="numeri" id="numeri"><label for="numeri">Numeri</label>
+        <input type="checkbox" name="simboli" id="simboli"><label for="simboli">Simboli</label><br><br>
         <input type="submit" value="Genera">
     </form>
-    <br>
-    <hr>
 </body>
 
 </html>
