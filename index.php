@@ -1,27 +1,14 @@
 <?php
+require_once 'function.php';
 
-$password = "";
+if ($password != "") {
+    header("location: ./password.php");
+    session_start();
 
-if (isset($_GET['lenght'])) {
-    $length = $_GET['lenght'];
-
-
-    $minuscole = 'abcdefghijklmnopqrstuvwxyz';
-    $maiuscole = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $numeri = '0123456789';
-    $simboli = '!@#$%^&*()\'';
-
-    $allCarts = $minuscole . $maiuscole . $numeri . $simboli;
-
-    $password = "";
-
-    for ($i = 0; $i < $length; $i++) {
-        $randomPosition = rand(0, strlen($allCarts) - 1);
-        $password .= $allCarts[$randomPosition];
-    }
+    $_SESSION['password'] = $password;
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +28,7 @@ if (isset($_GET['lenght'])) {
     </form>
     <br>
     <hr>
-    <h1><?php echo $password; ?></h1>
+    <pre><?php echo $password; ?></pre>
 </body>
 
 </html>
