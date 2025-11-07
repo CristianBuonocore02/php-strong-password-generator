@@ -28,7 +28,6 @@ if ($password != "") {
     </form>
     <br>
     <hr>
-
 </body>
 
 </html>
