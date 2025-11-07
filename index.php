@@ -28,7 +28,7 @@ if ($password != "") {
     </form>
     <br>
     <hr>
-    <pre><?php echo $password; ?></pre>
+
 </body>
 
 </html>
