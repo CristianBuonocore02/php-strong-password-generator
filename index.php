@@ -6,7 +6,6 @@ require_once 'function.php';
 if (!empty($password)) {
     $_SESSION['password'] = $password;
     header("Location: password.php");
-    exit;
 }
 ?>
 <!DOCTYPE html>
